@@ -16,7 +16,7 @@ class SMSProvider(NotificationProvider):
         if not phone:
             raise ValueError("Phone recipient not provided")
 
-        # Placeholder: simulate sending via SMS provider (Twilio, etc.)
+        # Placeholder: симуляция отправки сообщения с помощью asyncio.sleep
         await asyncio.sleep(0.05)
         logger.info("SMS sent to %s: %s", phone, message)
 

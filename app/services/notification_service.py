@@ -20,7 +20,7 @@ class NotificationService:
             try:
                 await provider.send(message=message, email=email, phone=phone, telegram_chat_id=telegram_chat_id)
                 return
-            except Exception as exc:  # noqa: BLE001 - log and retry
+            except Exception as exc:
                 logger.warning("Provider %s failed on attempt %s/%s: %s", provider.name, attempt, attempts, exc)
                 if attempt == attempts:
                     raise
@@ -34,7 +34,7 @@ class NotificationService:
                 await self._send_with_retry(provider, message=message, email=email, phone=phone, telegram_chat_id=telegram_chat_id)
                 logger.info("Delivered via %s", provider.name)
                 return provider.name
-            except Exception as exc:  # noqa: BLE001
+            except Exception as exc:
                 last_error = exc
                 logger.info("Falling back from %s due to error: %s", provider.name, exc)
         if last_error is not None:

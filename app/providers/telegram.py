@@ -16,7 +16,7 @@ class TelegramProvider(NotificationProvider):
         if not telegram_chat_id:
             raise ValueError("Telegram chat id not provided")
 
-        # Placeholder: simulate sending via Telegram bot API
+        # Placeholder: симуляция отправки сообщения с помощью asyncio.sleep
         await asyncio.sleep(0.05)
         logger.info("Telegram message sent to chat %s: %s", telegram_chat_id, message)
 

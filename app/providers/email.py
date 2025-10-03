@@ -16,8 +16,7 @@ class EmailProvider(NotificationProvider):
         if not email:
             raise ValueError("Email recipient not provided")
 
-        # Placeholder: simulate sending via SMTP or an email API
-        # In a real implementation, integrate aiosmtplib or an email API client.
+        # Placeholder: симуляция отправки сообщения с помощью asyncio.sleep
         await asyncio.sleep(0.05)
         logger.info("Email sent to %s: %s", email, message)
 

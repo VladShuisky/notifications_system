@@ -8,10 +8,8 @@ Channel = Literal["email", "sms", "telegram"]
 class NotificationRequest(BaseModel):
     message: str = Field(..., min_length=1, max_length=2000)
     channels: list[Channel] = Field(default_factory=lambda: ["email", "sms", "telegram"])
-
-    # Recipient fields
     email: Optional[EmailStr] = None
-    phone: Optional[str] = Field(default=None, description="E.164 phone number")
+    phone: Optional[str] = Field(default=None)
     telegram_chat_id: Optional[str] = None
 
     class Config:
